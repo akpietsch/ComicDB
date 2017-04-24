@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h1>Upload Success</h1>
+    <c:if test="${not empty filename}">
+        ${filename} uploaded successfully.
+        <br/><br/>
+    </c:if>
+
+    <c:if test="${not empty filenames}">
+        <c:forEach var="file" items="${filenames}">
+            ${file} uploaded successfully.
+            <br/>
+        </c:forEach>
+        <br/><br/>
+    </c:if>
+
+    <a href="<c:url value='/'/>">Home</a>
+
+</body>
+</html>

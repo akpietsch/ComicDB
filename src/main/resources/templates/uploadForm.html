@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Latest (stable) compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous" />
+<!-- Individual theme -->
+<link rel="stylesheet" href="/css/style.css" />
+
+</head>
+<body>
+	<div th:fragment="uploadForm">
+		<div th:if="${message}">
+			<h2 th:text="${message}" />
+		</div>
+		<div>
+			<form method="POST" enctype="multipart/form-data" th:action="@{'../../'+${title}+'/'+${id}+'/upload/'}">
+				<table>
+					<tr>
+						<td><input type="file" name="file" /></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Upload" accept=".jpg" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

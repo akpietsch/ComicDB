@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<!-- Die 3 Meta-Tags oben *müssen* zuerst im head stehen; jeglicher sonstiger head-Inhalt muss *nach* diesen Tags kommen -->
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/favicon.ico" />
+
+<!-- Latest (stable) compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous" />
+
+<!-- Individual theme -->
+<link rel="stylesheet" href="/css/style.css" />
+
+<title>Comic Löschen Status</title>
+
+<script type="text/javascript">
+  <!--
+  var imageURLs = [
+       "/images/header1.jpg", 
+       "/images/header2.jpg", 
+       "/images/header3.jpg"
+  ];
+  function getImageTag() {
+    var img = '<img src=\"';
+    var randomIndex = Math.floor(Math.random() * imageURLs.length);
+    img += imageURLs[randomIndex];
+    img += '\" alt=\"header image\"/>';
+    return img;
+  }
+  -->
+</script>
+
+</head>
+
+  <body>
+  
+	<!-- Menü -->
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Navigation ein-/ausblenden</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand">Comic Database</a>
+			</div>
+
+			<!-- Menüpunkte -->
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="../../../../">Start</a></li>
+					<li><a href="../../../list/">Comics</a></li>
+					<li><a href="../../../titles/">Titel</a></li>
+					<li><a href="../../../addComic/">Neuer Comic</a></li>
+				</ul>
+
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+	<!-- Menü Ende -->
+	  
+	  
+	<!-- Banner -->
+	<div class="container-fluid">
+		<div class="row">
+			<script type="text/javascript">
+  				document.write(getImageTag());
+			</script>
+		</div>
+	</div>
+	  
+
+      <div class="container">
+
+	<!-- Header Titel -->
+		<div class="title-header">
+			<br />
+			<h1 class="main-title" th:text="'Upload für '+${thiscomic.title}+' #'+${thiscomic.issue}+' erfolgreich.'">Comic erfolgreich gelöscht!</h1>
+		</div>
+
+      <div class="row">
+
+	 <!-- Main Content -->
+        <div class="col-sm-12 werk-main">
+        	<a href="../" th:text="'Zurück zu ' +${thiscomic.title}+' #'+${thiscomic.issue}">Zurück</a>
+
+
+
+        </div>
+		
+		<!-- Sidebar Links -->
+		<div class="sidebar-left">
+			
+        </div>
+		
+		
+
+
+      </div> <!-- /.row -->
+
+    </div><!-- /.container -->
+
+	<!-- Footer -->
+	<footer class="blog-footer">
+		<p>
+			<a href="#">Zurück nach oben</a>
+		</p>
+	</footer>
+
+		<!-- jQuery first, then Tether, then Bootstrap JS. -->
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+			integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+			integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+			crossorigin="anonymous"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+			crossorigin="anonymous"></script>
+  </body>
+</html>
