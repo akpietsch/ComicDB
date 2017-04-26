@@ -1,4 +1,4 @@
-package webComic.service;
+package webComicTest;
 
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 import org.json.JSONObject;
 import org.junit.Test;
 
-public class CoverGenerator{
+public class CoverGeneratorTest{
 	
 @Test
 		public void grabImage() {

@@ -2,7 +2,6 @@ package webComic.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +22,10 @@ import webComic.data.Comic;
 import webComic.service.JsonImport;
 import webComic.storage.StorageService;
 
+/**
+ * 
+ *
+ */
 @Controller
 public class UploadController {
 
@@ -31,33 +34,49 @@ public class UploadController {
 
 	@Autowired
 	JsonImport jService;
-	
+
 	List<String> files = new ArrayList<String>();
 
+	/**
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/comic/upload")
 	public String listUploadedFiles(Model model) {
 		return "uploadForm";
 	}
 
+	/**
+	 * @param title
+	 * @param id
+	 * @param file
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/comic/{title}/{id}/upload/")
-	public String handleFileUpload(@PathVariable("title") String title, @PathVariable("id") int id, @RequestParam("file") MultipartFile file, Model model) {
+	public String handleFileUpload(@PathVariable("title") String title, @PathVariable("id") int id,
+			@RequestParam("file") MultipartFile file, Model model) {
 		try {
 			storageService.store(file);
 			model.addAttribute("file", file);
 			model.addAttribute("title", title);
 			model.addAttribute("id", id);
 			files.add(file.getOriginalFilename());
-			jService.addComicImgById(id, "../../../images/jpgs/"+file.getOriginalFilename());
-			
+			jService.addComicImgById(id, "../../../images/jpgs/" + file.getOriginalFilename());
+
 			Comic comic = jService.getComicById(id);
 			model.addAttribute("thiscomic", comic);
-			
+
 		} catch (Exception e) {
 			model.addAttribute("message", "FAIL to upload " + file.getOriginalFilename() + "!");
 		}
 		return "addImgSuccess";
 	}
 
+	/**
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/getallfiles")
 	public String getListFiles(Model model) {
 		model.addAttribute("files",
@@ -69,6 +88,10 @@ public class UploadController {
 		return "listFiles";
 	}
 
+	/**
+	 * @param filename
+	 * @return
+	 */
 	@GetMapping("/files/{filename:.+}")
 	@ResponseBody
 	public ResponseEntity<Resource> getFile(@PathVariable String filename) {

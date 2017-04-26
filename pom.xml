@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>WebComicBase</name>
-	<description></description>
+	<description>a Database for Comics </description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

@@ -21,6 +21,10 @@ public class StorageService {
 	Logger log = LoggerFactory.getLogger(this.getClass().getName());
 	private final Path rootLocation = Paths.get("src/main/resources/static/images/jpgs");
 
+	/**
+	 * Speichert mehrere Dateien mit Orignalnamen
+	 * @param file
+	 */
 	public void store(MultipartFile file){
 		try {
             Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
@@ -29,6 +33,11 @@ public class StorageService {
         }
 	}
 
+    /**
+     * Lädt Datei aus lokaler Datenbank
+     * @param filename
+     * 
+     */
     public Resource loadFile(String filename) {
         try {
             Path file = rootLocation.resolve(filename);
@@ -43,10 +52,16 @@ public class StorageService {
         }
     }
     
+    /**
+     * Löscht alle Dateien im Verzeichnis
+     */
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
+    /**
+     * Initialisiert die Datenbank
+     */
     public void init() {
         try {
             Files.createDirectory(rootLocation);
